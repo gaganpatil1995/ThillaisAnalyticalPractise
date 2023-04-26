@@ -47,6 +47,7 @@ public static String encryptAES256AndBase64(String encryptionKey, String iv, Str
 			}
 			return Base64.getEncoder().encodeToString(encbyte);
 }
+
 public static String decryptBase64EncodedAES256(String encryptionKey, String iv, String inputParam) throws Exception {
 			String decodedOutput;
 			try {
