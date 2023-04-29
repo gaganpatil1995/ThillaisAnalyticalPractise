@@ -5,10 +5,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vanghee.control.EncryptDecryptUtil;
 import com.vanghee.model.EncryptedValue;
 import com.vanghee.model.Login;
-import com.vanghee.util.EncryptDecryptUtil;
 
 @RestController
 public class LoginController {
@@ -42,6 +43,8 @@ public class LoginController {
 	@GetMapping("/decrypt")
 	public String getDecryptedDate(@RequestParam String value) {
 		String responseObj= "";
+		
+		
 		try {
 			responseObj = EncryptDecryptUtil.decryptBase64EncodedAES256("9132THE96ABAABF7D3A0B4BE8B2D6GBE","94A149TH962A88DB", value);
 			
@@ -50,6 +53,7 @@ public class LoginController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+//		return value ;
 		return responseObj ;
 	}
 	
